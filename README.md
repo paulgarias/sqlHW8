@@ -134,8 +134,8 @@ select title where title like 'K%'  or title like 'Q%');
 * 7b. Use subqueries to display all actors who appear in the film `Alone Trip`.
 
 use sakila;  
-#film_id is 17
-#need film_actor and actor
+-- film_id is 17  
+-- need film_actor and actor  
 select actor.first_name, actor.last_name from actor left join (film_actor)
 on (actor.actor_id = film_actor.actor_id)
 where film_actor.film_id=17;  
@@ -143,11 +143,11 @@ where film_actor.film_id=17;
 * 7c. You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers. Use joins to retrieve this information.
 
 use sakila;  
-# Need names and email from Canadian customers
-# Customer table has (customer_id, store_id, 
-# first_name, last_name, email, address_id, active, create_date,
-# last_update)
-# Customer list has (ID which corresponds to customer_id)
+-- Need names and email from Canadian customers  
+-- Customer table has (customer_id, store_id,   
+-- first_name, last_name, email, address_id, active, create_date,  
+-- last_update)  
+-- Customer list has (ID which corresponds to customer_id)  
 
 select customer.first_name, customer.last_name, customer.email
 from customer left join (customer_list) 
@@ -161,11 +161,11 @@ use sakila;
 create view A  as
 select fc.film_id, fc.category_id, f.title 
 from film_category fc inner join (film f) 
-on (f.film_id = fc.film_id)  ;  
+on (f.film_id = fc.film_id);  
 
 select A.film_id, A.category_id, A.title, ct.name as name from A inner join(category ct) 
 on (ct.category_id = A.category_id )
-and name = "Family"
+and name = "Family";  
 
 
 * 7e. Display the most frequently rented movies in descending order.
