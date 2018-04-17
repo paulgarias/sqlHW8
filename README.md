@@ -117,9 +117,6 @@ Return 1
   	![Total amount paid](Images/total_payment.png)
   ```
 use sakila;  
-## Tables are payment and customer
-## Need to join on customer_id
-## Need to display first_name, last_name and sum of all payments (amount)
 select customer.first_name, customer.last_name, sum(amount) 
 from customer inner join (payment) 
 on (customer.customer_id = payment.customer_id)
